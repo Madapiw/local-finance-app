@@ -1,0 +1,26 @@
+{
+    "name": "local-finance-app",
+    "version": "1.0.0",
+    "description": "This project focuses on tracking day to day expenses. It`s a website where you can add your expenses safely and quickly, accessed only from your local lightweight server at home.",
+    "main": "app.js",
+    "scripts": {
+        "test": "nodemon app.js",
+        "start": "node app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Madapiw/local-finance-app.git"
+    },
+    "keywords": [
+        "local",
+        "finance",
+        "app",
+        "simple"
+    ],
+    "author": "Adam Piwoński",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/Madapiw/local-finance-app/issues"
+    },
+    "homepage": "https://github.com/Madapiw/local-finance-app#readme"
+}
