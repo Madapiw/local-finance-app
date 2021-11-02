@@ -22,5 +22,9 @@
     "bugs": {
         "url": "https://github.com/Madapiw/local-finance-app/issues"
     },
-    "homepage": "https://github.com/Madapiw/local-finance-app#readme"
+    "homepage": "https://github.com/Madapiw/local-finance-app#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "mysql": "^2.18.1"
+    }
 }
