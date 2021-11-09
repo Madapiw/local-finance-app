@@ -1,8 +1,8 @@
 const express = require('express');
-const mysql = require('mysql')
+//const mysql = require('mysql')
 const Sequelize = require('sequelize');
 const cors = require('cors')
-const models = require('./models/users')
+const Users = require('./models/users')
 const main = require('./routes/main')
 const port = 3000
 const app = express();
@@ -37,4 +37,6 @@ app.use(express.json())
 app.use(main)
 app.listen(port, host, () => {
     console.log(`Server running on ${host} : ${port}`);
+    const result = Users.findAll()
+    console.log(JSON.stringify(result));
 });

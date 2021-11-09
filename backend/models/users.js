@@ -1,7 +1,11 @@
-const express = require('express');
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('mysql:dbuser:db123@localhost:3306:');
-const User = sequelize.define('User', {
+const sequelize = new Sequelize('mysql:dbuser:db123@localhost:3306/finance_app');
+const Users = sequelize.define('Users', {
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
     login: {
         type: DataTypes.STRING(100),
         allowNull: false,
@@ -12,9 +16,9 @@ const User = sequelize.define('User', {
     },
     lasLogin: {
         type: DataTypes.DATEONLY,
-        allowNull: false
+        allowNull: true
     }
 });
 
-console.log(`User Check: ${User === sequelize.models.User}`);
-module.exports = User
+console.log(`User Check: ${Users === sequelize.models.Users}`);
+module.exports = Users;
