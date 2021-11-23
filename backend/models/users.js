@@ -9,16 +9,32 @@ const Users = sequelize.define('Users', {
     login: {
         type: DataTypes.STRING(100),
         allowNull: false,
+        unique: true
     },
-    pass: {
+    passwd: {
         type: DataTypes.STRING(32),
         allowNull: false,
     },
     lasLogin: {
-        type: DataTypes.DATEONLY,
+        type: DataTypes.DATE,
         allowNull: true
+    },
+    email: {
+        allowNull: true,
+        type: DataTypes.TEXT(255)
     }
+}, {
+    freezeTableName: true
 });
+/*
+Users.findOrCreate({
+        where: { login: "Admin", passwd: "1234", email: "cos@mail.com" }
+    }).then(function(user, created) {
+        console.log(user.get({
+            plain: true
+        }));
+    })
+*/
 
 console.log(`User Check: ${Users === sequelize.models.Users}`);
 module.exports = Users;

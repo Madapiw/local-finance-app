@@ -1,9 +1,8 @@
 const express = require('express');
-//const mysql = require('mysql')
 const Sequelize = require('sequelize');
 const cors = require('cors')
-const Users = require('./models/users')
 const main = require('./routes/main')
+    //const initDbs = require('../backend/initDb')
 const port = 3000
 const app = express();
 const host = '127.0.0.1'
@@ -28,6 +27,11 @@ const sequelize = new Sequelize('finance_app', 'dbuser', 'db123', {
 try {
     sequelize.authenticate();
     console.log('Connection has been established successfully.');
+    sequelize.sync({ force: true }).then(function() {
+        console.log("Database synced")
+    }).catch(function(error) {
+        console.log(error);
+    })
 } catch (error) {
     console.error('Unable to connect to the database:', error);
 }
@@ -37,6 +41,6 @@ app.use(express.json())
 app.use(main)
 app.listen(port, host, () => {
     console.log(`Server running on ${host} : ${port}`);
-    const result = Users.findAll()
-    console.log(JSON.stringify(result));
+    //const result = Users.findAll()
+    //console.log(JSON.stringify(result));
 });
