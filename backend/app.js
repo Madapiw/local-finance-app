@@ -1,23 +1,19 @@
+const http = require('http');
 const express = require('express');
 const cors = require('cors');
-const main = require('./routes/main');
+const dotenv = require('dotenv').config();
+
+const port = process.env.HOSTPORT || 8000;
+
 const app = express();
-const dotenv = require(dotenv);
+app.use(cors);
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'dbuser',
-    password: 'db123',
-    database: 'finance_app'
-})
-
-connection.connect();
-
-app.use(cors)
-app.use(express.json())
-app.use(main)
-app.listen(port, host, () => {
-    console.log(`Server running on ${host} : ${port}`);
-    //const result = Users.findAll()
-    //console.log(JSON.stringify(result));
+app.get("/", (req,res) =>{
+    res.status(200).send("Working")
 });
+
+app.listen(port,() => {
+    console.log(`Server listening on port: ${port}`);
+});
+
+  
