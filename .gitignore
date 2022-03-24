@@ -1,2 +1,3 @@
 /local-finance-app-server/node_modules/
 /local-finance-app-react/node_modules/
+/local-finance-app-server/.env
