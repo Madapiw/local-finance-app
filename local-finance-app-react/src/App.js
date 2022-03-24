@@ -5,8 +5,21 @@ import Dashboard from './Dashboard/dashboard';
 import Preferences from './Preferences/preferences';
 import Login from './Login/login';
 
+function setToken(userToken) {
+  sessionStorage.setItem('SessionToken',JSON.stringify(userToken));
+}
+
+function getToken() {
+  const tokenString = sessionStorage.getItem('SessionToken');
+  const userToken = JSON.parse(tokenString);
+  return userToken?.token
+}
+
+
 function App() {
-  const [token, setToken] = useState();
+  const token = getToken();
+
+  //const [token, setToken] = useState();
   if (!token) {
     return <Login setToken={setToken} />
   }
