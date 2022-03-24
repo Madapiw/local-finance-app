@@ -6,6 +6,11 @@ import Preferences from './Preferences/preferences';
 import Login from './Login/login';
 
 function App() {
+  const [token, setToken] = useState();
+  if (!token) {
+    return <Login setToken={setToken} />
+  }
+
   return (
     <div className="App">
       <div className="wrapper">
