@@ -20,12 +20,19 @@ router.get('/crypto', logging, (req, res, next) => {
 
 
 //login user
-router.post('/login',logging, (req, res, next) => {
+router.use('/login',logging, (req, res, next) => {
     try {
         const username = req.body.username;
         const password = req.body.password;
-
-
+        if (username !== '' & password !== '' ) {
+            res.status(200).send({
+                token: 'token123'
+            })
+        }else{
+        res.status(503).send({
+            message:'Page forbiden'
+        })
+    }
     } catch (error) {
         res.status(503).send({ error: error.message });
     }
@@ -37,7 +44,6 @@ router.post('/register', logging , (req, res, next) => {
         const username = req.body.username;
         const password = req.body.password;
         
-
     } catch (error) {
         res.status(503).send({ error: error.message });
     }

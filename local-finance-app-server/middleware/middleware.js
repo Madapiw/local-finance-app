@@ -12,7 +12,7 @@ async function auth(req, res, next) {
 
 async function logging(req, res, next){
     try {
-        console.log(`${req.host} : ${req.method} => ${req.path}`)
+        console.log(`${req.hostname} : ${req.method} => ${req.path}`)
         next()
     } catch (error) {
         console.log(error.message)

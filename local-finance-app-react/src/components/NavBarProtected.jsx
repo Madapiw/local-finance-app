@@ -3,12 +3,12 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-const NavBar = () => {
+const NavBarProtected = () => {
   return (
     <div id="navbar">
       <Navbar bg="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="/dashboard" className="text-white">
+          <Navbar.Brand href="/home" className="text-white">
             Local Finance
           </Navbar.Brand>
           <Navbar.Toggle />
@@ -43,4 +43,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavBarProtected;

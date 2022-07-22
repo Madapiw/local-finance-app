@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import {Link} from "react-router-dom"
+import {Login} from "../utils/LoginLogout"
 
 function LoginForm({ Login, error }) {
   let [details, setDetails] = useState({ name: "", email: "", password: "" });
@@ -15,21 +16,6 @@ function LoginForm({ Login, error }) {
       <form className="col-md-3 mt-5" onSubmit={submitHandler}>
         <div className="form-inner">
           <h2 className="display-3 font-weight-bold">Login</h2>
-          <div id="form-group" className="mb-3">
-            <label htmlFor="name" className="form-label">
-              Name:
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Jan Kowalski"
-              className="form-control"
-              onChange={(e) => setDetails({ ...details, name: e.target.value })}
-              value={details.name}
-            ></input>
-          </div>
-
           <div className="mb-3" id="form-group">
             <label htmlFor="email" className="form-label">
               Email:
@@ -73,9 +59,9 @@ function LoginForm({ Login, error }) {
           ) : (
             ""
           )}
-          <button type="submit" className="btn btn-primary btn-center">
+          <Link to={'/dashboard'}><button type="submit" className="btn btn-primary btn-center">
             Login
-          </button>
+          </button></Link>
         </div>
         <br />
       </form>
