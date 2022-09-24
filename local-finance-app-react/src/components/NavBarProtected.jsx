@@ -1,4 +1,4 @@
-import React from "react";
+import React , { Link }from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -14,18 +14,18 @@ const NavBarProtected = () => {
           <Navbar.Toggle />
 
           <Nav className="me-auto">
-            <Nav.Link href="/dashboard" className="text-white">
+            <Link href="/dashboard" className="text-white">
               Dashboard
-            </Nav.Link>
-            <Nav.Link href="/me" className="text-white">
+            </Link>
+            <Link href="/me" className="text-white">
               Me
-            </Nav.Link>
-            <Nav.Link href="/statistics" className="text-white">
+            </Link>
+            <Link href="/statistics" className="text-white">
               Statistics
-            </Nav.Link>
-            <Nav.Link href="/account" className="text-white">
+            </Link>
+            <Link href="/account" className="text-white">
               Account
-            </Nav.Link>
+            </Link>
           </Nav>
 
           <Navbar.Collapse className="justify-content-end">
