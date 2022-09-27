@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
-import NavBar from '../components/NavBarProtected'
+import NavBarProtected from '../components/NavBarProtected'
+
 
 export default class Dashboard extends Component {
   render() {
     return (
       <div>
         <NavBarProtected />
-        Dashboard
+        <div className="container">
+          <h1 className="display-2">Dashboard</h1>
+        </div>
       </div>
     )
   }

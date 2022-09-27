@@ -7,11 +7,9 @@ import Me from "./pages/Me";
 import Statistics from "./pages/Statistics";
 import Account from "./pages/Account";
 import RegisterForm from "./components/RegisterForm";
-import { Route, Routes , BrowserRouter, Link} from "react-router-dom";
+import { Route, Routes , BrowserRouter} from "react-router-dom";
 import ProtectedRoute from './utils/ProtectedRoute';
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+
 
 
 function App() {
@@ -28,14 +26,17 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* Public Routes */}
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/register" element={<RegisterForm />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LoginForm />} exact/>
+          <Route path="/register" element={<RegisterForm />} exact/>
+          <Route path="/" element={<Home />} exact/>
+          <Route path='/home' element={<Home />} exact />
           {/* Protected Routes */}
-          {/* <ProtectedRoute path="/dashboard" element={<Dashboard />} />
-          <ProtectedRoute path="/me" element={<Me />} />
-          <ProtectedRoute path="/statistics" element={<Statistics />} />
-          <ProtectedRoute path="/account" element={<Account />} /> */}
+          <Route element={<ProtectedRoute />}>
+            <Route path='dashboard' element={<Dashboard /> } exact />
+            <Route path='/me' element={<Me /> } exact />
+            <Route path='/statistics' element={<Statistics />} exact />
+            <Route path='/account' element={<Account />} exact/>
+          </Route>
         </Routes>
       </BrowserRouter>
   );

@@ -14,7 +14,7 @@ function RegisterForm({ Login, error }) {
     <div className="row d-flex justify-content-center">
       <form className="col-md-3 mt-5" onSubmit={submitHandler}>
         <div className="form-inner">
-          <h2 className="display-3 font-weight-bold">Login</h2>
+          <h2 className="display-3 font-weight-bold">Register</h2>
           <div id="form-group" className="mb-3">
             <label htmlFor="name" className="form-label">
               Name:

@@ -6,7 +6,9 @@ export default class Account extends Component {
     return (
       <div>
         <NavBarProtected />
-        Account
+        <div className="container">
+          <h1 className="display-2">Account</h1>
+        </div>
       </div>
     )
   }

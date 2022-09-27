@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import {Link} from "react-router-dom"
-import {Login} from "../utils/LoginLogout"
+import { Link } from "react-router-dom";
+import { Login } from "../utils/LoginLogout";
 
 function LoginForm({ Login, error }) {
   let [details, setDetails] = useState({ name: "", email: "", password: "" });
@@ -59,9 +59,11 @@ function LoginForm({ Login, error }) {
           ) : (
             ""
           )}
-          <Link to={'/dashboard'}><button type="submit" className="btn btn-primary btn-center">
-            Login
-          </button></Link>
+          <Link to={"/dashboard"}>
+            <button type="submit" className="btn btn-primary btn-center">
+              Login
+            </button>
+          </Link>
         </div>
         <br />
       </form>
