@@ -4,7 +4,6 @@ const logger = require('morgan');
 const cors = require('cors');
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
-const dotenv = require('dotenv').config();
 
 const app = express();
 
@@ -13,7 +12,7 @@ app.use(cors());
 app.disable('etag');
 app.disable('x-powered-by');
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
 

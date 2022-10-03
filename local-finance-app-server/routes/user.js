@@ -3,6 +3,7 @@ const router = express.Router();
 const crypto = require('crypto');
 const { Router } = require('express');
 const { logging } = require('../middleware/middleware');
+const { query } = require('../services/db')
 
 const hashpassword = (password) => {
     const salt = crypto.randomBytes(16).toString('hex');
@@ -43,12 +44,24 @@ router.post('/register', logging , (req, res, next) => {
     try {
         const username = req.body.username;
         const password = req.body.password;
-        
+        const email = req.body.email;
+
+        try {
+            query(`"INSERT INTO Users (username, password, email) VALUES ('${username}','${password}','${email}');"`)
+        } catch (error) {
+            console.log(error.message)
+        }
+        res.status(200).send({message: 'Registered user ' + username})
+
     } catch (error) {
         res.status(503).send({ error: error.message });
     }
 });
 
+router.use('/allusers', logging , (req, res, next) => {
+    result = query("SELECT * FROM Users;")
+    res.status(200).send(result)
+});
 
 
 
